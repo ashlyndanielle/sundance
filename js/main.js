@@ -10,6 +10,7 @@ $(document).ready(function(){
     let scrollBottom = $(window).scrollTop() + $(window).height();
     // colors
     const day = '#4F7286';
+    const sunset = '#2E0440'
     const twilight = '#011C2C';
     const night = '#000407';
 
@@ -20,7 +21,7 @@ $(document).ready(function(){
       }, 600 );
     }
     // change the background color based on scroll position
-    if ( scrollTop >= 800 && scrollTop < 1600) {
+    if ( scrollTop >= 800 && scrollTop < 1600 ) {
       console.log('scrollTop: ', scrollTop)
       changeBackground(twilight);
     } else if ( scrollTop >= 1600) {

@@ -638,6 +638,7 @@ $(document).ready(function () {
     var scrollBottom = $(window).scrollTop() + $(window).height();
     // colors
     var day = '#4F7286';
+    var sunset = '#2E0440';
     var twilight = '#011C2C';
     var night = '#000407';
 
