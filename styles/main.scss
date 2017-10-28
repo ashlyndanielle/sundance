@@ -1,0 +1,61 @@
+$primary: #4F7286;
+$secondary: #466F69;
+
+
+/*******************/
+/*** BASE STYLES ***/
+/*******************/
+
+.container {
+  background: $primary;
+  height: 100vh;
+  width: 100%;
+}
+
+/******************/
+/*** NAVIGATION ***/
+/******************/
+
+
+
+/******************/
+/***** HEADER *****/
+/******************/
+
+.cloud {
+  height: 200px;
+  width: 400px;
+  background: url('../assets/cloud.svg') no-repeat center;
+  background-size: cover;
+  position: relative;
+  opacity: 0.4;
+}
+.top {
+  top: 150px;
+  left: -400px;
+  animation: traverse-right 35s linear infinite;
+}
+.bottom {
+  top: 250px;
+  animation: traverse-left 25s linear infinite;
+}
+
+/*****************/
+/** MINDFULNESS **/
+/*****************/
+
+
+/*****************/
+/*** KEYFRAMES ***/
+/*****************/
+
+@keyframes traverse-left {
+  100% {
+    left: -1000px
+  }
+}
+@keyframes traverse-right {
+  100% {
+    left: +2000px
+  }
+}
