@@ -2,9 +2,9 @@ $primary: #4F7286;
 $secondary: #466F69;
 
 
-/*******************/
-/*** BASE STYLES ***/
-/*******************/
+/********************/
+/****** MIXINS ******/
+/********************/
 
 
 @mixin box ( $height, $width, $padding, $margin, $background ) {
@@ -14,6 +14,19 @@ $secondary: #466F69;
   margin: $margin;
   background: $background;
 }
+
+@mixin position( $top, $right, $bottom, $left ) {
+  position: relative;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+/*******************/
+/*** BASE STYLES ***/
+/*******************/
+
 
 .container {
   background: $primary;
@@ -55,17 +68,28 @@ $secondary: #466F69;
 
   .sun {
     @include box (100px, 100px, 0, 0, yellow);
-    // height: 100px;
-    // width: 100px;
-    // background: yellow;
     border-radius: 50%;
   }
 }
 
-/*****************/
-/** MINDFULNESS **/
-/*****************/
+/******************/
+/**** MOUNTAIN ****/
+/******************/
 
+figure {
+  width: 100vw;
+  height: 400px;
+  background: purple;
+}
+
+.mountain {
+  height: 200px;
+  width: 100%;
+  background: url(../assets/mountain.svg);
+  position: fixed;
+  background-size: cover;
+  bottom: 0;
+}
 
 /*****************/
 /*** KEYFRAMES ***/
@@ -78,27 +102,9 @@ $secondary: #466F69;
     left: -1000px
   }
 }
+
 @keyframes traverse-right {
   100% {
     left: +2000px
   }
-}
-
-/********************/
-/****** MIXINS ******/
-/********************/
-
-// @mixin box ( $height, $width, $padding, $margin, $background ) {
-//   height: $height;
-//   width: $width;
-//   padding: $padding;
-//   margin: $margin;
-//   background: $background;
-// }
-@mixin position( $top, $right, $bottom, $left ) {
-  position: relative;
-  top: $top;
-  right: $right;
-  bottom: $bottom;
-  left: $left;
 }
