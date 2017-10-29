@@ -6,6 +6,15 @@ $secondary: #466F69;
 /*** BASE STYLES ***/
 /*******************/
 
+
+@mixin box ( $height, $width, $padding, $margin, $background ) {
+  height: $height;
+  width: $width;
+  padding: $padding;
+  margin: $margin;
+  background: $background;
+}
+
 .container {
   background: $primary;
   height: 100vh;
@@ -18,26 +27,39 @@ $secondary: #466F69;
 
 
 
-/******************/
-/***** HEADER *****/
-/******************/
+/*******************/
+/***** DAYTIME *****/
+/*******************/
 
-.cloud {
-  height: 200px;
-  width: 400px;
-  background: url('../assets/cloud.svg') no-repeat center;
-  background-size: cover;
-  position: relative;
-  opacity: 0.4;
-}
-.top {
-  top: 150px;
-  left: -400px;
-  animation: traverse-right 35s linear infinite;
-}
-.bottom {
-  top: 250px;
-  animation: traverse-left 25s linear infinite;
+.daytime {
+
+  .cloud {
+    height: 200px;
+    width: 400px;
+    background: url('../assets/cloud.svg') no-repeat center;
+    background-size: cover;
+    position: relative;
+    opacity: 0.4;
+  }
+
+  .top {
+    top: 150px;
+    left: -400px;
+    animation: traverse-right 35s linear infinite;
+  }
+
+  .bottom {
+    top: 250px;
+    animation: traverse-left 25s linear infinite;
+  }
+
+  .sun {
+    @include box (100px, 100px, 0, 0, yellow);
+    // height: 100px;
+    // width: 100px;
+    // background: yellow;
+    border-radius: 50%;
+  }
 }
 
 /*****************/
@@ -49,6 +71,8 @@ $secondary: #466F69;
 /*** KEYFRAMES ***/
 /*****************/
 
+
+/* CLOUD ANIMATIONS */
 @keyframes traverse-left {
   100% {
     left: -1000px
@@ -58,4 +82,23 @@ $secondary: #466F69;
   100% {
     left: +2000px
   }
+}
+
+/********************/
+/****** MIXINS ******/
+/********************/
+
+// @mixin box ( $height, $width, $padding, $margin, $background ) {
+//   height: $height;
+//   width: $width;
+//   padding: $padding;
+//   margin: $margin;
+//   background: $background;
+// }
+@mixin position( $top, $right, $bottom, $left ) {
+  position: relative;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
 }

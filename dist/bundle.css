@@ -56,10 +56,10 @@ table {
 /******************/
 /*** NAVIGATION ***/
 /******************/
-/******************/
-/***** HEADER *****/
-/******************/
-.cloud {
+/*******************/
+/***** DAYTIME *****/
+/*******************/
+.daytime .cloud {
   height: 200px;
   width: 400px;
   background: url("../assets/cloud.svg") no-repeat center;
@@ -67,14 +67,22 @@ table {
   position: relative;
   opacity: 0.4; }
 
-.top {
+.daytime .top {
   top: 150px;
   left: -400px;
   animation: traverse-right 35s linear infinite; }
 
-.bottom {
+.daytime .bottom {
   top: 250px;
   animation: traverse-left 25s linear infinite; }
+
+.daytime .sun {
+  height: 100px;
+  width: 100px;
+  padding: 0;
+  margin: 0;
+  background: yellow;
+  border-radius: 50%; }
 
 /*****************/
 /** MINDFULNESS **/
@@ -82,6 +90,7 @@ table {
 /*****************/
 /*** KEYFRAMES ***/
 /*****************/
+/* CLOUD ANIMATIONS */
 @keyframes traverse-left {
   100% {
     left: -1000px; } }
@@ -89,3 +98,7 @@ table {
 @keyframes traverse-right {
   100% {
     left: +2000px; } }
+
+/********************/
+/****** MIXINS ******/
+/********************/
