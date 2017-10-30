@@ -630,6 +630,7 @@ $(document).ready(function () {
 
   var deviceWidth = $(window).width();
   console.log('width: ', deviceWidth);
+  // set position of bottom cloud to right of the screen
   $('.bottom').css({ 'left': deviceWidth });
 
   // function to change background color
@@ -643,19 +644,13 @@ $(document).ready(function () {
   var day = '#5283A0';
   var night = '#021C2C';
 
-  // SCROLL EVENTS 
-  $(window).scroll(function () {
-    // positions of the top and bottom of view to top of page
-    var scrollTop = $(window).scrollTop();
-    var scrollBottom = $(window).scrollTop() + $(window).height();
-  });
-
   /**********************/
   /**** CREATE NIGHT ****/
   /**********************/
 
   $('.sun').on('click', function () {
     console.log('Sun Clicked');
+
     $('.sun').animate({ top: '-=20' }, 500, function () {
       $('.sun').animate({ top: '+=1000' }, 1200, function () {
         changeBackground(night);
@@ -678,6 +673,7 @@ $(document).ready(function () {
 
   $('.moon').on('click', function () {
     console.log('Moon Clicked');
+
     $('.moon').animate({ top: '-=20' }, 500, function () {
       $('.moon').animate({ top: '+=1000' }, 1200, function () {
         $('.daytime').fadeIn('fast', function () {

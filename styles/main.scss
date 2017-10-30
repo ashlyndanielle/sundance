@@ -102,7 +102,6 @@ $day-gradient: radial-gradient($secondary, $primary, $primary);
     }
   }
 
-
 /*******************/
 /*** BASE STYLES ***/
 /*******************/
@@ -194,8 +193,8 @@ $day-gradient: radial-gradient($secondary, $primary, $primary);
       position: absolute;
       top: 0;
       left: 0;
-      -webkit-animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
-              animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
+      -webkit-animation: shadow-pulse 2s linear infinite;
+              animation: shadow-pulse 2s linear infinite;
       @include box (100px, 100px, null, null, $sun);
     }
 
@@ -236,7 +235,19 @@ $day-gradient: radial-gradient($secondary, $primary, $primary);
       border-radius: 50%;
       position: relative;
       left: 1300px;
-      top: 1000px;
+      top: 1200px;
       z-index: 4;
     }
+
+    // .moon:before {
+    //   content: '';
+    //   display: block;
+    //   @include box (5px, 5px, null, null, white);
+    //   border-radius: 50%;
+    //   z-index: 4;
+    //   position: relative;
+    //   left: 500px;
+    //   -webkit-animation: shoot 1s linear infinite 6s;
+    //           animation: shoot 1s linear infinite 6s;
+    // }
   }
