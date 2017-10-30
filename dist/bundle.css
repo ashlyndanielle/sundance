@@ -54,16 +54,57 @@ table {
 body {
   background: #021C2C;
   overflow: hidden;
-  font-family: sans-serif; }
+  font-family: 'Raleway' sans-serif; }
 
 .container {
   height: 100vh;
   width: 100%;
   background: #021C2C; }
 
-/******************/
-/*** NAVIGATION ***/
-/******************/
+/*****************/
+/**** SKYLINE ****/
+/*****************/
+.cloud {
+  height: 200px;
+  width: 400px;
+  background: url("../assets/cloud.svg") no-repeat center;
+  background-size: cover;
+  position: fixed;
+  opacity: 0.4;
+  z-index: 5; }
+
+.top {
+  bottom: 725px;
+  left: -400px;
+  animation: traverse-right 35s linear infinite; }
+
+.bottom {
+  bottom: 425px;
+  animation: traverse-left 25s linear infinite; }
+
+.skyline {
+  position: fixed;
+  z-index: 5;
+  bottom: 0;
+  color: transparent; }
+
+.mountain-day {
+  height: 300px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: url("../assets/mountain-day.svg");
+  background-size: cover; }
+
+.mountain-night {
+  height: 300px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: url("../assets/mountain.svg");
+  background-size: cover;
+  display: none; }
+
 /*******************/
 /***** DAYTIME *****/
 /*******************/
@@ -75,10 +116,8 @@ body {
     width: 100px;
     background: #EEC100;
     position: relative;
-    text-align: center;
-    color: beige;
-    line-height: 100px;
     left: 400px;
+    top: 260px;
     animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
     z-index: 2;
     box-shadow: 0 0 10px 10px #eec100; }
@@ -99,63 +138,19 @@ body {
     -o-transform: rotate(30deg);
     transform: rotate(30deg); }
   .daytime .sun:after {
-    content: 'CLICK ME';
     -webkit-transform: rotate(60deg);
     -moz-transform: rotate(60deg);
     -ms-transform: rotate(60deg);
     -o-transform: rotate(60deg);
     transform: rotate(60deg); }
 
-/*****************/
-/**** SKYLINE ****/
-/*****************/
-.cloud {
-  height: 200px;
-  width: 400px;
-  background: url("../assets/cloud.svg") no-repeat center;
-  background-size: cover;
-  position: relative;
-  opacity: 0.4; }
-
-.top {
-  top: 150px;
-  left: -400px;
-  animation: traverse-right 35s linear infinite; }
-
-.bottom {
-  top: 250px;
-  z-index: 5;
-  animation: traverse-left 25s linear infinite; }
-
-.skyline {
-  position: fixed;
-  z-index: 5;
-  bottom: 0;
-  color: transparent; }
-
-.day {
-  height: 300px;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  background: url("../assets/mountain-day.svg");
-  background-size: cover; }
-
-.night {
-  height: 300px;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  background: url("../assets/mountain.svg");
-  background-size: cover;
-  display: none; }
-
-/*******************/
+/********************/
 /**** NIGHT-TIME ****/
-/*******************/
+/********************/
 .night-time {
   display: none;
-  background: url("http://www.script-tutorials.com/demos/360/images/stars.png") repeat; }
+  background: url("http://www.script-tutorials.com/demos/360/images/stars.png") repeat;
+  position: relative; }
   .night-time .twinkle {
     background: url("../assets/bubble.svg") repeat;
     height: 2200px;

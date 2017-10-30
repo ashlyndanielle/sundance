@@ -1,7 +1,6 @@
 $primary: #5283A0;
 $secondary: #021C2C;
 
-
 /********************/
 /****** MIXINS ******/
 /********************/
@@ -21,7 +20,7 @@ $secondary: #021C2C;
 body {
   background: $secondary;
   overflow: hidden;
-  font-family: sans-serif;
+  font-family: 'Raleway' sans-serif;
 }
 
 .container {
@@ -30,10 +29,48 @@ body {
   background: $secondary;
 }
 
-/******************/
-/*** NAVIGATION ***/
-/******************/
+/*****************/
+/**** SKYLINE ****/
+/*****************/
 
+.cloud {
+  height: 200px;
+  width: 400px;
+  background: url('../assets/cloud.svg') no-repeat center;
+  background-size: cover;
+  position: fixed;
+  opacity: 0.4;
+  z-index: 5;
+}
+
+.top {
+  bottom: 725px;
+  left: -400px;
+  animation: traverse-right 35s linear infinite;
+}
+
+.bottom {
+  bottom: 425px;
+  animation: traverse-left 25s linear infinite;
+}
+
+.skyline {
+  position: fixed;
+  z-index: 5;
+  bottom: 0;
+  color: transparent;
+}
+
+.mountain-day {
+  @include box (300px, 100%, 0, 0, url('../assets/mountain-day.svg'));
+  background-size: cover;
+}
+
+.mountain-night {
+  @include box (300px, 100%, 0, 0, url('../assets/mountain.svg'));
+  background-size: cover;
+  display: none;
+}
 
 
 /*******************/
@@ -48,10 +85,9 @@ body {
   .sun {
     @include box (100px, 100px, null, null, #EEC100);
     position: relative;
-    text-align: center;
-    color: beige;
-    line-height: 100px;
+
     left: 400px;
+    top: 260px;
     animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
     z-index: 2;
     box-shadow: 0 0 10px 10px #eec100;
@@ -73,7 +109,6 @@ body {
     transform: rotate(30deg);
   }
   .sun:after {
-    content: 'CLICK ME';
     -webkit-transform: rotate(60deg);
     -moz-transform: rotate(60deg);
     -ms-transform: rotate(60deg);
@@ -83,56 +118,14 @@ body {
   
 }
 
-/*****************/
-/**** SKYLINE ****/
-/*****************/
-
-.cloud {
-  height: 200px;
-  width: 400px;
-  background: url('../assets/cloud.svg') no-repeat center;
-  background-size: cover;
-  position: relative;
-  opacity: 0.4;
-}
-
-.top {
-  top: 150px;
-  left: -400px;
-  animation: traverse-right 35s linear infinite;
-}
-
-.bottom {
-  top: 250px;
-  z-index: 5;
-  animation: traverse-left 25s linear infinite;
-}
-
-.skyline {
-  position: fixed;
-  z-index: 5;
-  bottom: 0;
-  color: transparent;
-}
-
-.day {
-  @include box (300px, 100%, 0, 0, url('../assets/mountain-day.svg'));
-  background-size: cover;
-}
-
-.night {
-  @include box (300px, 100%, 0, 0, url('../assets/mountain.svg'));
-  background-size: cover;
-  display: none;
-}
-
-/*******************/
+/********************/
 /**** NIGHT-TIME ****/
-/*******************/
+/********************/
 
 .night-time {
   display: none;
   background: url('http://www.script-tutorials.com/demos/360/images/stars.png') repeat;
+  position: relative;
   
   .twinkle {
     background: url('../assets/bubble.svg') repeat;

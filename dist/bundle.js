@@ -661,9 +661,9 @@ $(document).ready(function () {
         changeBackground(night);
         $('.night-time').show('slow', function () {
           $('.daytime').fadeOut('fast', function () {
-            $('.night').fadeIn('slow', function () {
+            $('.mountain-night').fadeIn('slow', function () {
               $('.moon').animate({ top: '-=1000' }, 1000, function () {
-                $('.day').hide();
+                $('.mountain-day').hide();
               });
             });
           });
@@ -683,9 +683,9 @@ $(document).ready(function () {
         $('.daytime').fadeIn('fast', function () {
           changeBackground(day);
           $('.night-time').hide('fast', function () {
-            $('.day').fadeIn('slow', function () {
+            $('.mountain-day').fadeIn('slow', function () {
               $('.sun').animate({ top: '-=1000' }, 1000, function () {
-                $('.night').hide();
+                $('.mountain-night').hide();
               });
             });
           });
