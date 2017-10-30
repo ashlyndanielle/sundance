@@ -12,6 +12,7 @@ $(document).ready(function(){
     // set position of moon relative to the width of screen
     $('.moon').css( {'left': deviceWidth - 250} );
 
+    
   
   // function to change background color
   const changeBackground = color => {

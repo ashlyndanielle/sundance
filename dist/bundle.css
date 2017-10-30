@@ -173,8 +173,8 @@ body {
     width: 80px;
     background: #EEC100;
     position: relative;
-    left: 200px;
     top: 80px;
+    left: 200px;
     -webkit-animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
     animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
     z-index: 2;
@@ -182,14 +182,14 @@ body {
   .daytime .sun:before, .daytime .sun:after {
     z-index: 1;
     content: "";
+    height: 80px;
+    width: 80px;
+    background: #EEC100;
     position: absolute;
     top: 0;
     left: 0;
     -webkit-animation: shadow-pulse 2s linear infinite;
-    animation: shadow-pulse 2s linear infinite;
-    height: 80px;
-    width: 80px;
-    background: #EEC100; }
+    animation: shadow-pulse 2s linear infinite; }
   .daytime .sun:before {
     -webkit-transform: rotate(30deg);
     transform: rotate(30deg); }
@@ -223,9 +223,9 @@ body {
     padding: 0;
     margin: 0;
     background: white;
-    border-radius: 50%;
     position: relative;
     top: 1000px;
+    border-radius: 50%;
     z-index: 4; }
 
 /*****************/
