@@ -258,6 +258,10 @@ $sun: #EEC100;
     height: 150px;
     width: 300px;
   }
+  .moon {
+    height: 50px;
+    width: 50px;
+  }
 }
 
 @media ( max-width: 700px ) {
@@ -281,9 +285,3 @@ $sun: #EEC100;
     font-size: 18px;
   }
 }
-
-// @media ( max-width: 700px ) {
-//   .skyline {
-//     height: 120px;
-//   }
-// }
