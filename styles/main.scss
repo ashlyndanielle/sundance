@@ -1,5 +1,6 @@
 $primary: #5283A0;
 $secondary: #021C2C;
+$day-gradient: radial-gradient($secondary, $primary, $primary);
 
 /********************/
 /****** MIXINS ******/
@@ -20,13 +21,19 @@ $secondary: #021C2C;
 body {
   background: $secondary;
   overflow: hidden;
-  font-family: 'Raleway' sans-serif;
 }
 
 .container {
-  height: 100vh;
-  width: 100%;
-  background: $secondary;
+  @include box (100vh, 100%, null, null, $secondary);
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  font-size: 36px;
+
+  p {
+    @include box (150px, null, null, auto, null);
+    text-align: center;
+    line-height: 150px;
+  }
 }
 
 /*****************/
@@ -34,9 +41,7 @@ body {
 /*****************/
 
 .cloud {
-  height: 200px;
-  width: 400px;
-  background: url('../assets/cloud.svg') no-repeat center;
+  @include box (200px, 400px, null, null, url('../assets/cloud.svg') no-repeat center);
   background-size: cover;
   position: fixed;
   opacity: 0.4;

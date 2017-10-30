@@ -53,13 +53,20 @@ table {
 /*******************/
 body {
   background: #021C2C;
-  overflow: hidden;
-  font-family: 'Raleway' sans-serif; }
+  overflow: hidden; }
 
 .container {
   height: 100vh;
   width: 100%;
-  background: #021C2C; }
+  background: #021C2C;
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  font-size: 36px; }
+  .container p {
+    height: 150px;
+    margin: auto;
+    text-align: center;
+    line-height: 150px; }
 
 /*****************/
 /**** SKYLINE ****/
