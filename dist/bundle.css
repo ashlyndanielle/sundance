@@ -51,10 +51,15 @@ table {
 /*******************/
 /*** BASE STYLES ***/
 /*******************/
+body {
+  background: #021C2C;
+  overflow: hidden;
+  font-family: sans-serif; }
+
 .container {
-  background: #4F7286;
   height: 100vh;
-  width: 100%; }
+  width: 100%;
+  background: #021C2C; }
 
 /******************/
 /*** NAVIGATION ***/
@@ -62,7 +67,49 @@ table {
 /*******************/
 /***** DAYTIME *****/
 /*******************/
-.daytime .cloud {
+.daytime {
+  overflow: hidden;
+  background: #5283A0; }
+  .daytime .sun {
+    height: 100px;
+    width: 100px;
+    background: #EEC100;
+    position: relative;
+    text-align: center;
+    color: beige;
+    line-height: 100px;
+    left: 400px;
+    animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
+    z-index: 2;
+    box-shadow: 0 0 10px 10px #eec100; }
+  .daytime .sun:before, .daytime .sun:after {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: shadow-pulse 2s linear infinite;
+    height: 100px;
+    width: 100px;
+    background: #EEC100; }
+  .daytime .sun:before {
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    transform: rotate(30deg); }
+  .daytime .sun:after {
+    content: 'CLICK ME';
+    -webkit-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    -o-transform: rotate(60deg);
+    transform: rotate(60deg); }
+
+/*****************/
+/**** SKYLINE ****/
+/*****************/
+.cloud {
   height: 200px;
   width: 400px;
   background: url("../assets/cloud.svg") no-repeat center;
@@ -70,47 +117,155 @@ table {
   position: relative;
   opacity: 0.4; }
 
-.daytime .top {
+.top {
   top: 150px;
   left: -400px;
   animation: traverse-right 35s linear infinite; }
 
-.daytime .bottom {
+.bottom {
   top: 250px;
+  z-index: 5;
   animation: traverse-left 25s linear infinite; }
 
-.daytime .sun {
-  height: 100px;
-  width: 100px;
+.skyline {
+  position: fixed;
+  z-index: 5;
+  bottom: 0;
+  color: transparent; }
+
+.day {
+  height: 300px;
+  width: 100%;
   padding: 0;
   margin: 0;
-  background: yellow;
-  border-radius: 50%; }
+  background: url("../assets/mountain-day.svg");
+  background-size: cover; }
 
-/******************/
-/**** MOUNTAIN ****/
-/******************/
-figure {
-  width: 100vw;
-  height: 400px;
-  background: purple; }
-
-.mountain {
-  height: 200px;
+.night {
+  height: 300px;
   width: 100%;
-  background: url(../assets/mountain.svg);
-  position: fixed;
+  padding: 0;
+  margin: 0;
+  background: url("../assets/mountain.svg");
   background-size: cover;
-  bottom: 0; }
+  display: none; }
+
+/*******************/
+/**** NIGHT-TIME ****/
+/*******************/
+.night-time {
+  display: none;
+  background: url("http://www.script-tutorials.com/demos/360/images/stars.png") repeat; }
+  .night-time .twinkle {
+    background: url("../assets/bubble.svg") repeat;
+    height: 2200px;
+    width: 2200px;
+    animation: twinkle 60s linear infinite;
+    position: absolute;
+    transform: rotate(90deg); }
+  .night-time .moon {
+    height: 100px;
+    width: 100px;
+    padding: 0;
+    margin: 0;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    left: 1300px;
+    top: 1300px;
+    z-index: 4; }
 
 /*****************/
 /*** KEYFRAMES ***/
 /*****************/
+/* SPIN ANIMATION */
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg); } }
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
 /* CLOUD ANIMATIONS */
+@-moz-keyframes traverse-left {
+  100% {
+    left: -1000px; } }
+
+@-webkit-keyframes traverse-left {
+  100% {
+    left: -1000px; } }
+
 @keyframes traverse-left {
   100% {
     left: -1000px; } }
 
+@-moz-keyframes traverse-right {
+  100% {
+    left: +2000px; } }
+
+@-webkit-keyframes traverse-right {
+  100% {
+    left: +2000px; } }
+
 @keyframes traverse-right {
   100% {
     left: +2000px; } }
+
+/* SUN BOX-SHADOW */
+@-moz-keyframes shadow-pulse {
+  0% {
+    color: #EEC100;
+    box-shadow: 0 0 0 0 #EEC100; }
+  50% {
+    color: beige;
+    box-shadow: 0 0 5px 5px #EEC100; }
+  100% {
+    color: #EEC100;
+    box-shadow: 0 0 0 0 #EEC100; } }
+
+@-webkit-keyframes shadow-pulse {
+  0% {
+    color: #EEC100;
+    box-shadow: 0 0 0 0 #EEC100; }
+  50% {
+    color: beige;
+    box-shadow: 0 0 5px 5px #EEC100; }
+  100% {
+    color: #EEC100;
+    box-shadow: 0 0 0 0 #EEC100; } }
+
+@keyframes shadow-pulse {
+  0% {
+    color: #EEC100;
+    box-shadow: 0 0 0 0 #EEC100; }
+  50% {
+    color: beige;
+    box-shadow: 0 0 5px 5px #EEC100; }
+  100% {
+    color: #EEC100;
+    box-shadow: 0 0 0 0 #EEC100; } }
+
+/* TWINKLING BACKGROUND */
+@-moz-keyframes twinkle {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -10000px 5000px; } }
+
+@-webkit-keyframes twinkle {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -10000px 5000px; } }
+
+@keyframes twinkle {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: -10000px 5000px; } }

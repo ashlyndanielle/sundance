@@ -1,34 +1,72 @@
 $(document).ready(function(){
-
-  let deviceWidth = $(window).width();
-  console.log('width: ', deviceWidth);
-  $('.bottom').css( {'left': deviceWidth} );
-
-  $(window).scroll(function(){
-    // positions of the top and bottom of view to top of page
-    let scrollTop = $(window).scrollTop();
-    let scrollBottom = $(window).scrollTop() + $(window).height();
-    // colors
-    const day = '#4F7286';
-    const sunset = '#2E0440'
-    const twilight = '#011C2C';
-    const night = '#000407';
-
+  
+    let deviceWidth = $(window).width();
+    console.log('width: ', deviceWidth);
+    $('.bottom').css( {'left': deviceWidth} );
+  
     // function to change background color
     const changeBackground = color => {
       jQuery(".container").stop().animate({
         backgroundColor: color
       }, 600 );
     }
-    // change the background color based on scroll position
-    if ( scrollTop >= 800 && scrollTop < 1600 ) {
-      console.log('scrollTop: ', scrollTop)
-      changeBackground(twilight);
-    } else if ( scrollTop >= 1600) {
-      changeBackground(night);
-    } else {
-      changeBackground(day);
-    }
 
-  })
-});
+    // colors
+    const day = '#5283A0';
+    const night = '#021C2C';
+
+
+    // SCROLL EVENTS 
+    $(window).scroll(function(){
+      // positions of the top and bottom of view to top of page
+      let scrollTop = $(window).scrollTop();
+      let scrollBottom = $(window).scrollTop() + $(window).height();
+      
+  
+    })
+
+    /**********************/
+    /**** CREATE NIGHT ****/
+    /**********************/
+
+
+    $('.sun').on('click', function(){
+      console.log('Sun Clicked')
+      $('.sun').animate({top: '-=20'}, 500, function(){
+        $('.sun').animate({top: '+=1000'}, 1200, function(){
+          changeBackground(night);
+          $('.night-time').show('slow', function(){
+            $('.daytime').fadeOut('fast', function(){
+              $('.night').fadeIn('slow', function(){
+                $('.moon').animate({top: '-=1000'}, 1000, function(){
+                  $('.day').hide();
+                })
+              })
+            })
+          })
+        })
+      })
+    });
+
+    /********************/
+    /**** CREATE DAY ****/
+    /********************/    
+
+    $('.moon').on('click', function(){
+      console.log('Moon Clicked');
+      $('.moon').animate({top: '-=20'}, 500, function(){
+        $('.moon').animate({top: '+=1000'}, 1200, function(){
+          $('.daytime').fadeIn('fast', function(){
+            changeBackground(day);
+            $('.night-time').hide('fast', function(){
+              $('.day').fadeIn('slow', function(){
+                $('.sun').animate({top: '-=1000'}, 1000, function(){
+                  $('.night').hide();
+                })
+              })
+            })
+          })
+        })
+      })
+    })
+  });
