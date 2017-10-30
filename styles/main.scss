@@ -169,6 +169,15 @@ $sun: #EEC100;
     display: none;
   }
 
+  #witch {
+    @include box ( 60px, 60px, 0, 0, url('../assets/witch.svg') no-repeat center);
+    @include position (absolute, 160px, -80px);
+    z-index: 9;
+    background-size: cover;
+    -webkit-animation: traverse-right 1.5s linear 4s;
+            animation: traverse-right 1.5s linear 4s; 
+  }
+
 /*******************/
 /***** DAYTIME *****/
 /*******************/

@@ -162,6 +162,20 @@ body {
   background-size: cover;
   display: none; }
 
+#witch {
+  height: 60px;
+  width: 60px;
+  padding: 0;
+  margin: 0;
+  background: url("../assets/witch.svg") no-repeat center;
+  position: absolute;
+  top: 160px;
+  left: -80px;
+  z-index: 9;
+  background-size: cover;
+  -webkit-animation: traverse-right 1.5s linear 4s;
+  animation: traverse-right 1.5s linear 4s; }
+
 /*******************/
 /***** DAYTIME *****/
 /*******************/
