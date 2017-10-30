@@ -181,12 +181,12 @@ body {
   overflow: hidden;
   background: #5283A0; }
   .daytime .sun {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     background: #EEC100;
     position: relative;
     left: 400px;
-    top: 260px;
+    top: 80px;
     -webkit-animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
     animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
     z-index: 2;
@@ -199,8 +199,8 @@ body {
     left: 0;
     -webkit-animation: shadow-pulse 2s linear infinite;
     animation: shadow-pulse 2s linear infinite;
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     background: #EEC100; }
   .daytime .sun:before {
     -webkit-transform: rotate(30deg);
@@ -233,6 +233,5 @@ body {
     background: white;
     border-radius: 50%;
     position: relative;
-    left: 1300px;
-    top: 1200px;
+    top: 1000px;
     z-index: 4; }

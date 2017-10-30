@@ -4,6 +4,7 @@ $(document).ready(function(){
   console.log('width: ', deviceWidth);
   // set position of bottom cloud to right of the screen
   $('.bottom').css( {'left': deviceWidth} );
+  $('.moon').css( {'left': deviceWidth - 350} );
   
   // function to change background color
   const changeBackground = color => {
