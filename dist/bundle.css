@@ -162,20 +162,6 @@ body {
   background-size: cover;
   display: none; }
 
-#witch {
-  height: 60px;
-  width: 60px;
-  padding: 0;
-  margin: 0;
-  background: url("../assets/witch.svg") no-repeat center;
-  position: absolute;
-  top: 160px;
-  left: -80px;
-  z-index: 9;
-  background-size: cover;
-  -webkit-animation: traverse-right 1.5s linear 4s;
-  animation: traverse-right 1.5s linear 4s; }
-
 /*******************/
 /***** DAYTIME *****/
 /*******************/
@@ -220,16 +206,16 @@ body {
   position: relative;
   /*** REMOVED FOR PERFORMANCE REASONS ***/
   /*
-      .twinkle {
-        background: url('../assets/bubble.svg') repeat;
-        height: 2200px;
-        width: 2200px;
-        -webkit-animation: twinkle 60s linear infinite;
-                animation: twinkle 60s linear infinite;
-        position: absolute;
-        -webkit-transform: rotate(90deg);
-                transform: rotate(90deg);
-      }
+    .twinkle {
+      background: url('../assets/bubble.svg') repeat;
+      height: 2200px;
+      width: 2200px;
+      -webkit-animation: twinkle 60s linear infinite;
+      animation: twinkle 60s linear infinite;
+      position: absolute;
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
     */ }
   .night-time .moon {
     height: 80px;
@@ -241,6 +227,19 @@ body {
     top: 1000px;
     border-radius: 50%;
     z-index: 4; }
+  .night-time #witch {
+    height: 60px;
+    width: 60px;
+    padding: 0;
+    margin: 0;
+    background: url("../assets/witch.svg") no-repeat center;
+    position: absolute;
+    top: 160px;
+    left: -80px;
+    z-index: 9;
+    background-size: cover;
+    -webkit-animation: traverse-right 2.5s linear 4s;
+    animation: traverse-right 2.5s linear 4s; }
 
 /*****************/
 /* MEDIA QUERIES */
@@ -258,7 +257,7 @@ body {
   .night-time .moon {
     height: 60px;
     width: 60px; }
-  #witch {
+  .night-time #witch {
     height: 50px;
     width: 50px; }
   .cloud {
@@ -285,7 +284,7 @@ body {
   .night-time .moon {
     height: 50px;
     width: 50px; }
-  #witch {
+  .night-time #witch {
     height: 40px;
     width: 40px; }
   .container {

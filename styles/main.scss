@@ -169,95 +169,96 @@ $sun: #EEC100;
     display: none;
   }
 
-  #witch {
-    @include box ( 60px, 60px, 0, 0, url('../assets/witch.svg') no-repeat center);
-    @include position (absolute, 160px, -80px);
-    z-index: 9;
-    background-size: cover;
-    -webkit-animation: traverse-right 1.5s linear 4s;
-            animation: traverse-right 1.5s linear 4s; 
-  }
-
-/*******************/
-/***** DAYTIME *****/
-/*******************/
-
+  
+  /*******************/
+  /***** DAYTIME *****/
+  /*******************/
+  
   .daytime {
     overflow: hidden;
     background: $primary;
-
+    
     
     .sun {
       @include box (80px, 80px, null, null, $sun);
       @include position (relative, 80px, 200px);
       -webkit-animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
-              animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
+      animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
       z-index: 2;
       box-shadow: 0 0 10px 10px $sun;
     }
-
+    
     .sun:before, .sun:after {
       z-index: 1;
       content: "";
       @include box (80px, 80px, null, null, $sun);
       @include position (absolute, 0, 0);
       -webkit-animation: shadow-pulse 2s linear infinite;
-              animation: shadow-pulse 2s linear infinite;
+      animation: shadow-pulse 2s linear infinite;
     }
-
+    
     .sun:before {
       -webkit-transform: rotate(30deg);
-              transform: rotate(30deg);
+      transform: rotate(30deg);
     }
     
     .sun:after {
       -webkit-transform: rotate(60deg);
-              transform: rotate(60deg);
+      transform: rotate(60deg);
     }
     
   }
-
-/********************/
-/**** NIGHT-TIME ****/
-/********************/
-
+  
+  /********************/
+  /**** NIGHT-TIME ****/
+  /********************/
+  
   .night-time {
     display: none;
     background: url('http://www.script-tutorials.com/demos/360/images/stars.png') repeat;
     position: relative;
-
+    
     /*** REMOVED FOR PERFORMANCE REASONS ***/ 
     /*
-      .twinkle {
-        background: url('../assets/bubble.svg') repeat;
-        height: 2200px;
-        width: 2200px;
-        -webkit-animation: twinkle 60s linear infinite;
-                animation: twinkle 60s linear infinite;
-        position: absolute;
-        -webkit-transform: rotate(90deg);
-                transform: rotate(90deg);
-      }
+    .twinkle {
+      background: url('../assets/bubble.svg') repeat;
+      height: 2200px;
+      width: 2200px;
+      -webkit-animation: twinkle 60s linear infinite;
+      animation: twinkle 60s linear infinite;
+      position: absolute;
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
     */
-
+    
     .moon {
       @include box (80px, 80px, 0, 0, white);
       @include position (relative, 1000px, null);
       border-radius: 50%;
       z-index: 4;
     }
+
+    #witch {
+      @include box ( 60px, 60px, 0, 0, url('../assets/witch.svg') no-repeat center);
+      @include position (absolute, 160px, -80px);
+      z-index: 9;
+      background-size: cover;
+      -webkit-animation: traverse-right 2.5s linear 4s;
+              animation: traverse-right 2.5s linear 4s; 
+    }
   }
-
-/*****************/
-/* MEDIA QUERIES */
-/*****************/
-
+  
+  /*****************/
+  /* MEDIA QUERIES */
+  /*****************/
+  
   @media ( max-width: 1200px ) {
     .skyline {
       height: 230px;
     }
   }
-
+  
   @media ( max-width: 950px ) {
     .skyline {
       height: 180px;
@@ -269,7 +270,7 @@ $sun: #EEC100;
       height: 60px;
       width: 60px;
     }
-    #witch {
+    .night-time #witch {
       height: 50px;
       width: 50px;
     }
@@ -306,7 +307,7 @@ $sun: #EEC100;
       height: 50px;
       width: 50px;
     }
-    #witch {
+    .night-time #witch {
       height: 40px;
       width: 40px;
     }
