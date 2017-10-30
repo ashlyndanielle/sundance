@@ -629,10 +629,17 @@
 $(document).ready(function () {
 
   var deviceWidth = $(window).width();
+  var deviceHeight = $(window).height();
   console.log('width: ', deviceWidth);
-  // set position of bottom cloud to right of the screen
-  $('.bottom').css({ 'left': deviceWidth });
-  $('.moon').css({ 'left': deviceWidth - 350 });
+  console.log('height: ', deviceHeight);
+  // set position of clouds
+  $('.top').css({ 'bottom': deviceHeight - 200 });
+  $('.bottom').css({ 'left': deviceWidth, 'bottom': deviceHeight - 400 });
+  // set position of moon relative to the width of screen
+  $('.moon').css({ 'left': deviceWidth - 250 });
+  // set position of sun relative to width of screen
+  // $('.sun').css( {''} );
+
 
   // function to change background color
   var changeBackground = function changeBackground(color) {

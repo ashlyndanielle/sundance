@@ -117,7 +117,7 @@ $sun: #EEC100;
     font-size: 36px;
 
     p {
-      @include box (150px, null, null, auto, null);
+      @include box (150px, null, 0, 0 auto, null);
       text-align: center;
       line-height: 150px;
     }
@@ -136,14 +136,12 @@ $sun: #EEC100;
   }
 
   .top {
-    bottom: 725px;
     left: -400px;
     -webkit-animation: traverse-right 35s linear infinite;
             animation: traverse-right 35s linear infinite;
   }
 
   .bottom {
-    bottom: 425px;
     -webkit-animation: traverse-left 25s linear infinite;
             animation: traverse-left 25s linear infinite;
   }
@@ -178,7 +176,7 @@ $sun: #EEC100;
     .sun {
       @include box (80px, 80px, null, null, $sun);
       position: relative;
-      left: 400px;
+      left: 200px;
       top: 80px;
       -webkit-animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
               animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
@@ -230,22 +228,62 @@ $sun: #EEC100;
     }
 
     .moon {
-      @include box (100px, 100px, 0, 0, white);
+      @include box (80px, 80px, 0, 0, white);
       border-radius: 50%;
       position: relative;
       top: 1000px;
       z-index: 4;
     }
-
-    // .moon:before {
-    //   content: '';
-    //   display: block;
-    //   @include box (5px, 5px, null, null, white);
-    //   border-radius: 50%;
-    //   z-index: 4;
-    //   position: relative;
-    //   left: 500px;
-    //   -webkit-animation: shoot 1s linear infinite 6s;
-    //           animation: shoot 1s linear infinite 6s;
-    // }
   }
+
+/*****************/
+/* MEDIA QUERIES */
+/*****************/
+
+@media ( max-width: 1200px ) {
+  .skyline {
+    height: 230px;
+  }
+}
+
+@media ( max-width: 950px ) {
+  .skyline {
+    height: 180px;
+  }
+  .moon {
+    height: 20px;
+    width: 20px;
+  }
+  .cloud {
+    height: 150px;
+    width: 300px;
+  }
+}
+
+@media ( max-width: 700px ) {
+  .skyline {
+    height: 120px;
+  }
+  .container {
+    font-size: 24px;
+  }
+  .cloud {
+    height: 100px;
+    width: 200px;
+  }
+}
+
+@media ( max-width: 475px ) {
+  .skyline {
+    height: 90px;
+  }
+  .container {
+    font-size: 18px;
+  }
+}
+
+// @media ( max-width: 700px ) {
+//   .skyline {
+//     height: 120px;
+//   }
+// }

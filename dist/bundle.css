@@ -124,7 +124,8 @@ body {
   font-size: 36px; }
   .container p {
     height: 150px;
-    margin: auto;
+    padding: 0;
+    margin: 0 auto;
     text-align: center;
     line-height: 150px; }
 
@@ -141,13 +142,11 @@ body {
   z-index: 5; }
 
 .top {
-  bottom: 725px;
   left: -400px;
   -webkit-animation: traverse-right 35s linear infinite;
   animation: traverse-right 35s linear infinite; }
 
 .bottom {
-  bottom: 425px;
   -webkit-animation: traverse-left 25s linear infinite;
   animation: traverse-left 25s linear infinite; }
 
@@ -185,7 +184,7 @@ body {
     width: 80px;
     background: #EEC100;
     position: relative;
-    left: 400px;
+    left: 200px;
     top: 80px;
     -webkit-animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
     animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
@@ -226,8 +225,8 @@ body {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg); }
   .night-time .moon {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     padding: 0;
     margin: 0;
     background: white;
@@ -235,3 +234,35 @@ body {
     position: relative;
     top: 1000px;
     z-index: 4; }
+
+/*****************/
+/* MEDIA QUERIES */
+/*****************/
+@media (max-width: 1200px) {
+  .skyline {
+    height: 230px; } }
+
+@media (max-width: 950px) {
+  .skyline {
+    height: 180px; }
+  .moon {
+    height: 20px;
+    width: 20px; }
+  .cloud {
+    height: 150px;
+    width: 300px; } }
+
+@media (max-width: 700px) {
+  .skyline {
+    height: 120px; }
+  .container {
+    font-size: 24px; }
+  .cloud {
+    height: 100px;
+    width: 200px; } }
+
+@media (max-width: 475px) {
+  .skyline {
+    height: 90px; }
+  .container {
+    font-size: 18px; } }
