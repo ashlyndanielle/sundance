@@ -1,278 +1,242 @@
 $primary: #5283A0;
 $secondary: #021C2C;
+$sun: #EEC100;
 $day-gradient: radial-gradient($secondary, $primary, $primary);
 
 /********************/
 /****** MIXINS ******/
 /********************/
 
-@mixin box ( $height, $width, $padding, $margin, $background ) {
-  height: $height;
-  width: $width;
-  padding: $padding;
-  margin: $margin;
-  background: $background;
-}
-
-/*******************/
-/*** BASE STYLES ***/
-/*******************/
-
-body {
-  background: $secondary;
-  overflow: hidden;
-}
-
-.container {
-  @include box (100vh, 100%, null, null, $secondary);
-  font-family: 'Raleway', sans-serif;
-  color: white;
-  font-size: 36px;
-
-  p {
-    @include box (150px, null, null, auto, null);
-    text-align: center;
-    line-height: 150px;
-  }
-}
-
-/*****************/
-/**** SKYLINE ****/
-/*****************/
-
-.cloud {
-  @include box (200px, 400px, null, null, url('../assets/cloud.svg') no-repeat center);
-  background-size: cover;
-  position: fixed;
-  opacity: 0.4;
-  z-index: 5;
-}
-
-.top {
-  bottom: 725px;
-  left: -400px;
-  animation: traverse-right 35s linear infinite;
-}
-
-.bottom {
-  bottom: 425px;
-  animation: traverse-left 25s linear infinite;
-}
-
-.skyline {
-  position: fixed;
-  z-index: 5;
-  bottom: 0;
-  color: transparent;
-}
-
-.mountain-day {
-  @include box (300px, 100%, 0, 0, url('../assets/mountain-day.svg'));
-  background-size: cover;
-}
-
-.mountain-night {
-  @include box (300px, 100%, 0, 0, url('../assets/mountain.svg'));
-  background-size: cover;
-  display: none;
-}
-
-
-/*******************/
-/***** DAYTIME *****/
-/*******************/
-
-.daytime {
-  overflow: hidden;
-  background: $primary;
-
-  
-  .sun {
-    @include box (100px, 100px, null, null, #EEC100);
-    position: relative;
-
-    left: 400px;
-    top: 260px;
-    animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
-    z-index: 2;
-    box-shadow: 0 0 10px 10px #eec100;
-  }
-  .sun:before, .sun:after {
-    z-index: 1;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    animation: shadow-pulse 2s linear infinite;
-    @include box (100px, 100px, null, null, #EEC100);
-  }
-  .sun:before {
-    -webkit-transform: rotate(30deg);
-    -moz-transform: rotate(30deg);
-    -ms-transform: rotate(30deg);
-    -o-transform: rotate(30deg);
-    transform: rotate(30deg);
-  }
-  .sun:after {
-    -webkit-transform: rotate(60deg);
-    -moz-transform: rotate(60deg);
-    -ms-transform: rotate(60deg);
-    -o-transform: rotate(60deg);
-    transform: rotate(60deg);
-  }
-  
-}
-
-/********************/
-/**** NIGHT-TIME ****/
-/********************/
-
-.night-time {
-  display: none;
-  background: url('http://www.script-tutorials.com/demos/360/images/stars.png') repeat;
-  position: relative;
-  
-  .twinkle {
-    background: url('../assets/bubble.svg') repeat;
-    height: 2200px;
-    width: 2200px;
-    animation: twinkle 60s linear infinite;
-    position: absolute;
-    transform: rotate(90deg);
+  @mixin box ( $height, $width, $padding, $margin, $background ) {
+    height: $height;
+    width: $width;
+    padding: $padding;
+    margin: $margin;
+    background: $background;
   }
 
-  .moon {
-    @include box (100px, 100px, 0, 0, white);
-    border-radius: 50%;
-    position: relative;
-    left: 1300px;
-    top: 1300px;
-    z-index: 4;
-  }
-}
 
 /*****************/
 /*** KEYFRAMES ***/
 /*****************/
 
-/* SPIN ANIMATION */
-@-moz-keyframes spin { 
-  100% { 
-    -moz-transform: rotate(360deg); 
-  } 
-}
-@-webkit-keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
+  /* SPIN ANIMATION */
+
+  @-webkit-keyframes spin {
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
   }
-}
-@keyframes spin { 
-  100% { 
-    -webkit-transform: rotate(360deg); 
-    transform:rotate(360deg); 
-  } 
-}
+  @keyframes spin { 
+    100% { 
+      -webkit-transform: rotate(360deg); 
+      transform:rotate(360deg); 
+    } 
+  }
+
+  /* CLOUD ANIMATIONS */
+
+  @-webkit-keyframes traverse-left {
+    100% {
+      left: -1000px
+    }
+  }
+  @keyframes traverse-left {
+    100% {
+      left: -1000px
+    }
+  }
+
+  @-webkit-keyframes traverse-right {
+    100% {
+      left: +2000px
+    }
+  }
+  @keyframes traverse-right {
+    100% {
+      left: +2000px
+    }
+  }
+
+  /* SUN BOX-SHADOW */
+
+  @-webkit-keyframes shadow-pulse {
+    0% {
+      box-shadow: 0 0 0 0 $sun;
+    }
+    50% {
+      box-shadow: 0 0 5px 5px $sun;
+    }
+    100% {
+      box-shadow: 0 0 0 0 $sun;
+    }
+  }
+  @keyframes shadow-pulse {
+    0% {
+      box-shadow: 0 0 0 0 $sun;
+    }
+    50% {
+      box-shadow: 0 0 5px 5px $sun;
+    }
+    100% {
+      box-shadow: 0 0 0 0 $sun;
+    }
+  }
+
+  /* TWINKLING BACKGROUND */
+
+  @-webkit-keyframes twinkle {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -10000px 5000px;
+    }
+  }
+  @keyframes twinkle {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -10000px 5000px;
+    }
+  }
 
 
-/* CLOUD ANIMATIONS */
-@-moz-keyframes traverse-left {
-  100% {
-    left: -1000px
-  }
-}
-@-webkit-keyframes traverse-left {
-  100% {
-    left: -1000px
-  }
-}
-@keyframes traverse-left {
-  100% {
-    left: -1000px
-  }
-}
+/*******************/
+/*** BASE STYLES ***/
+/*******************/
 
-@-moz-keyframes traverse-right {
-  100% {
-    left: +2000px
+  body {
+    background: $secondary;
+    overflow: hidden;
   }
-}
-@-webkit-keyframes traverse-right {
-  100% {
-    left: +2000px
-  }
-}
-@keyframes traverse-right {
-  100% {
-    left: +2000px
-  }
-}
 
-/* SUN BOX-SHADOW */
-@-moz-keyframes shadow-pulse {
-  0% {
-    color: #EEC100;
-    box-shadow: 0 0 0 0 #EEC100;
-  }
-  50% {
-    color: beige;
-    box-shadow: 0 0 5px 5px #EEC100;
-  }
-  100% {
-    color: #EEC100;
-    box-shadow: 0 0 0 0 #EEC100;
-  }
-}
-@-webkit-keyframes shadow-pulse {
-  0% {
-    color: #EEC100;
-    box-shadow: 0 0 0 0 #EEC100;
-  }
-  50% {
-    color: beige;
-    box-shadow: 0 0 5px 5px #EEC100;
-  }
-  100% {
-    color: #EEC100;
-    box-shadow: 0 0 0 0 #EEC100;
-  }
-}
-@keyframes shadow-pulse {
-  0% {
-    color: #EEC100;
-    box-shadow: 0 0 0 0 #EEC100;
-  }
-  50% {
-    color: beige;
-    box-shadow: 0 0 5px 5px #EEC100;
-  }
-  100% {
-    color: #EEC100;
-    box-shadow: 0 0 0 0 #EEC100;
-  }
-}
+  .container {
+    @include box (100vh, 100%, null, null, $secondary);
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: 36px;
 
-/* TWINKLING BACKGROUND */
-@-moz-keyframes twinkle {
-  0% {
-    background-position: 0 0;
+    p {
+      @include box (150px, null, null, auto, null);
+      text-align: center;
+      line-height: 150px;
+    }
   }
-  100% {
-    background-position: -10000px 5000px;
+
+/*****************/
+/**** SKYLINE ****/
+/*****************/
+
+  .cloud {
+    @include box (200px, 400px, null, null, url('../assets/cloud.svg') no-repeat center);
+    background-size: cover;
+    position: fixed;
+    opacity: 0.4;
+    z-index: 5;
   }
-}
-@-webkit-keyframes twinkle {
-  0% {
-    background-position: 0 0;
+
+  .top {
+    bottom: 725px;
+    left: -400px;
+    -webkit-animation: traverse-right 35s linear infinite;
+            animation: traverse-right 35s linear infinite;
   }
-  100% {
-    background-position: -10000px 5000px;
+
+  .bottom {
+    bottom: 425px;
+    -webkit-animation: traverse-left 25s linear infinite;
+            animation: traverse-left 25s linear infinite;
   }
-}
-@keyframes twinkle {
-  0% {
-    background-position: 0 0;
+
+  .skyline {
+    position: fixed;
+    z-index: 5;
+    bottom: 0;
+    color: transparent;
   }
-  100% {
-    background-position: -10000px 5000px;
+
+  .mountain-day {
+    @include box (300px, 100%, 0, 0, url('../assets/mountain-day.svg'));
+    background-size: cover;
   }
-}
+
+  .mountain-night {
+    @include box (300px, 100%, 0, 0, url('../assets/mountain.svg'));
+    background-size: cover;
+    display: none;
+  }
+
+/*******************/
+/***** DAYTIME *****/
+/*******************/
+
+  .daytime {
+    overflow: hidden;
+    background: $primary;
+
+    
+    .sun {
+      @include box (100px, 100px, null, null, $sun);
+      position: relative;
+      left: 400px;
+      top: 260px;
+      -webkit-animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
+              animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
+      z-index: 2;
+      box-shadow: 0 0 10px 10px $sun;
+    }
+
+    .sun:before, .sun:after {
+      z-index: 1;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      -webkit-animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
+              animation: spin 10s linear infinite, shadow-pulse 2s linear infinite;
+      @include box (100px, 100px, null, null, $sun);
+    }
+
+    .sun:before {
+      -webkit-transform: rotate(30deg);
+              transform: rotate(30deg);
+    }
+    
+    .sun:after {
+      -webkit-transform: rotate(60deg);
+              transform: rotate(60deg);
+    }
+    
+  }
+
+/********************/
+/**** NIGHT-TIME ****/
+/********************/
+
+  .night-time {
+    display: none;
+    background: url('http://www.script-tutorials.com/demos/360/images/stars.png') repeat;
+    position: relative;
+    
+    .twinkle {
+      background: url('../assets/bubble.svg') repeat;
+      height: 2200px;
+      width: 2200px;
+      -webkit-animation: twinkle 60s linear infinite;
+              animation: twinkle 60s linear infinite;
+      position: absolute;
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
+    }
+
+    .moon {
+      @include box (100px, 100px, 0, 0, white);
+      border-radius: 50%;
+      position: relative;
+      left: 1300px;
+      top: 1000px;
+      z-index: 4;
+    }
+  }
