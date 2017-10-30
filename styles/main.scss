@@ -250,17 +250,16 @@ $sun: #EEC100;
   .skyline {
     height: 180px;
   }
-  .moon {
-    height: 20px;
-    width: 20px;
+  .daytime .sun,
+  .daytime .sun:before,
+  .daytime .sun:after,
+  .night-time .moon {
+    height: 60px;
+    width: 60px;
   }
   .cloud {
     height: 150px;
     width: 300px;
-  }
-  .moon {
-    height: 50px;
-    width: 50px;
   }
 }
 
@@ -275,13 +274,26 @@ $sun: #EEC100;
     height: 100px;
     width: 200px;
   }
+  .daytime .sun {
+    left: 150px;
+  }
 }
 
 @media ( max-width: 475px ) {
   .skyline {
     height: 90px;
   }
+  .daytime .sun,
+  .daytime .sun:before,
+  .daytime .sun:after,
+  .night-time .moon {
+    height: 50px;
+    width: 50px;
+  }
   .container {
     font-size: 18px;
+  }
+  .daytime .sun {
+    left: 100px;
   }
 }
