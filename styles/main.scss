@@ -83,23 +83,24 @@ $sun: #EEC100;
   }
 
   /* TWINKLING BACKGROUND */
+  /* CHOOSE DIFFERENT STRATEGY FOR PERFORMANCE */
 
-  @-webkit-keyframes twinkle {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: -10000px 5000px;
-    }
-  }
-  @keyframes twinkle {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: -10000px 5000px;
-    }
-  }
+  // @-webkit-keyframes twinkle {
+  //   0% {
+  //     background-position: 0 0;
+  //   }
+  //   100% {
+  //     background-position: -10000px 5000px;
+  //   }
+  // }
+  // @keyframes twinkle {
+  //   0% {
+  //     background-position: 0 0;
+  //   }
+  //   100% {
+  //     background-position: -10000px 5000px;
+  //   }
+  // }
 
 /*******************/
 /*** BASE STYLES ***/
@@ -215,17 +216,20 @@ $sun: #EEC100;
     display: none;
     background: url('http://www.script-tutorials.com/demos/360/images/stars.png') repeat;
     position: relative;
-    
-    .twinkle {
-      background: url('../assets/bubble.svg') repeat;
-      height: 2200px;
-      width: 2200px;
-      -webkit-animation: twinkle 60s linear infinite;
-              animation: twinkle 60s linear infinite;
-      position: absolute;
-      -webkit-transform: rotate(90deg);
-              transform: rotate(90deg);
-    }
+
+    /*** REMOVED FOR PERFORMANCE REASONS ***/ 
+    /*
+      .twinkle {
+        background: url('../assets/bubble.svg') repeat;
+        height: 2200px;
+        width: 2200px;
+        -webkit-animation: twinkle 60s linear infinite;
+                animation: twinkle 60s linear infinite;
+        position: absolute;
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+      }
+    */
 
     .moon {
       @include box (80px, 80px, 0, 0, white);
@@ -240,60 +244,60 @@ $sun: #EEC100;
 /* MEDIA QUERIES */
 /*****************/
 
-@media ( max-width: 1200px ) {
-  .skyline {
-    height: 230px;
+  @media ( max-width: 1200px ) {
+    .skyline {
+      height: 230px;
+    }
   }
-}
 
-@media ( max-width: 950px ) {
-  .skyline {
-    height: 180px;
+  @media ( max-width: 950px ) {
+    .skyline {
+      height: 180px;
+    }
+    .daytime .sun,
+    .daytime .sun:before,
+    .daytime .sun:after,
+    .night-time .moon {
+      height: 60px;
+      width: 60px;
+    }
+    .cloud {
+      height: 150px;
+      width: 300px;
+    }
   }
-  .daytime .sun,
-  .daytime .sun:before,
-  .daytime .sun:after,
-  .night-time .moon {
-    height: 60px;
-    width: 60px;
-  }
-  .cloud {
-    height: 150px;
-    width: 300px;
-  }
-}
 
-@media ( max-width: 700px ) {
-  .skyline {
-    height: 120px;
+  @media ( max-width: 700px ) {
+    .skyline {
+      height: 120px;
+    }
+    .container {
+      font-size: 24px;
+    }
+    .cloud {
+      height: 100px;
+      width: 200px;
+    }
+    .daytime .sun {
+      left: 150px;
+    }
   }
-  .container {
-    font-size: 24px;
-  }
-  .cloud {
-    height: 100px;
-    width: 200px;
-  }
-  .daytime .sun {
-    left: 150px;
-  }
-}
 
-@media ( max-width: 475px ) {
-  .skyline {
-    height: 90px;
+  @media ( max-width: 475px ) {
+    .skyline {
+      height: 90px;
+    }
+    .daytime .sun,
+    .daytime .sun:before,
+    .daytime .sun:after,
+    .night-time .moon {
+      height: 50px;
+      width: 50px;
+    }
+    .container {
+      font-size: 18px;
+    }
+    .daytime .sun {
+      left: 100px;
+    }
   }
-  .daytime .sun,
-  .daytime .sun:before,
-  .daytime .sun:after,
-  .night-time .moon {
-    height: 50px;
-    width: 50px;
-  }
-  .container {
-    font-size: 18px;
-  }
-  .daytime .sun {
-    left: 100px;
-  }
-}

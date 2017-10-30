@@ -96,18 +96,7 @@ table {
     box-shadow: 0 0 0 0 #EEC100; } }
 
 /* TWINKLING BACKGROUND */
-@-webkit-keyframes twinkle {
-  0% {
-    background-position: 0 0; }
-  100% {
-    background-position: -10000px 5000px; } }
-
-@keyframes twinkle {
-  0% {
-    background-position: 0 0; }
-  100% {
-    background-position: -10000px 5000px; } }
-
+/* CHOOSE DIFFERENT STRATEGY FOR PERFORMANCE */
 /*******************/
 /*** BASE STYLES ***/
 /*******************/
@@ -214,16 +203,20 @@ body {
 .night-time {
   display: none;
   background: url("http://www.script-tutorials.com/demos/360/images/stars.png") repeat;
-  position: relative; }
-  .night-time .twinkle {
-    background: url("../assets/bubble.svg") repeat;
-    height: 2200px;
-    width: 2200px;
-    -webkit-animation: twinkle 60s linear infinite;
-    animation: twinkle 60s linear infinite;
-    position: absolute;
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg); }
+  position: relative;
+  /*** REMOVED FOR PERFORMANCE REASONS ***/
+  /*
+      .twinkle {
+        background: url('../assets/bubble.svg') repeat;
+        height: 2200px;
+        width: 2200px;
+        -webkit-animation: twinkle 60s linear infinite;
+                animation: twinkle 60s linear infinite;
+        position: absolute;
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+      }
+    */ }
   .night-time .moon {
     height: 80px;
     width: 80px;
